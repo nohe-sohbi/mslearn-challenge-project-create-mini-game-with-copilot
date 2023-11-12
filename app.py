@@ -2,10 +2,13 @@ import random
 import sys
 user_score = 0
 computer_score = 0
-print(f"Welcome to rock, paper, scissors!")
 
+print(f"Welcome to rock, paper, scissors!")
+turn_count = 0
 while True:
+    turn_count += 1
     user = input("Enter your choice: ")
+    user = user.lower()
     possible_actions = ["rock", "paper", "scissors"]
     computer = random.choice(possible_actions)
     if user == computer:
@@ -37,8 +40,8 @@ while True:
     print(f"Computer score: {computer_score}")
     play_again = input("Play again? (y/n): ")
     if play_again.lower() != "y":
-        # display final scores
         print("Final Scores:")
         print(f"Player score: {user_score}")
         print(f"Computer score: {computer_score}")
+        print(f"Total turns: {turn_count}")
         sys.exit()
